@@ -28,6 +28,12 @@ You must download the following from [Axway Support](https://support.axway.com).
 * API Gateway Linux installer
 * Latest Docker sample scripts package for your API Gateway version. Choose the appropriate package from the [list of Docker scripts on Axway Support](https://support.axway.com/en/search/index/type/Downloads/q/Docker/ipp/50/product/324/subtype/47).
 
+#### Acceptance of General Conditions for license and subscription services
+
+To run API Gateway/API Manager, Admin Node Manager or API Gateway Analytics containers, you must accept Axway General Terms and Conditions:
+
+Axway products and services are governed exclusively by Axway's [General Terms and Conditions](https://www.axway.com/en/legal/contract-documents). To accept them, set the environment variable `ACCEPT_GENERAL_CONDITIONS` to `yes` when running each container.
+
 #### API Gateway licenses
 
 You must have specific API Gateway licenses to run the following:

@@ -120,11 +120,20 @@ cd emt_containers-<version>
 ./build_gw_image.py --license=/tmp/api_gw.lic --domain-cert=certs/mydomain/mydomain-cert.pem --domain-key=certs/mydomain/mydomain-key.pem --domain-key-pass-file=/tmp/pass.txt --parent-image=my-gw-base:1.0 --fed=my-group-fed.fed --fed-pass-file=/tmp/my-group-fedpass.txt --group-id=my-group --merge-dir=/tmp/apigateway
 ```
 
+Alternatively, you can use a YAML-based configuration instead of an XML-based fed while building your API Gateway Docker image. The following command uses a YAML configuration to build a gateway image:
+
+```
+./build_gw_image.py --license=/tmp/api_gw.lic --domain-cert=certs/mydomain/mydomain-cert.pem --domain-key=certs/mydomain/mydomain-key.pem --domain-key-pass-file=/tmp/pass.txt --parent-image=my-gw-base:1.0 --yaml=my-group-yaml --yaml-pass-file=/tmp/my-group-yamlpass.txt --group-id=my-group --merge-dir=/tmp/apigateway
+```
+
+* The `--yaml` option accepts `tar.gz`, `.tgz` or folder based YAML configurations.
+* The `--factory-yaml` can be used instead of specifying a `--yaml` configuration, to build the API Gateway Docker image with a preset configuration.
+
 This example creates an API Gateway Docker image named `api-gateway-my-group` with a tag of `latest`. This image has the following characteristics:
 
 * Based on the `my-gw-base:1.0` image.
 * Uses a specified certificate and key.
-* Uses a specified `fed` that contains API Gateway 7.7 configuration.
+* Uses a specified `fed` (or YAML configuration) that contains API Gateway 7.7 configuration.
 * Belongs to the API Gateway group `my-group`. All containers started from this image belong to this group.
 * Uses a specified merge directory that is merged into the API Gateway image.
 

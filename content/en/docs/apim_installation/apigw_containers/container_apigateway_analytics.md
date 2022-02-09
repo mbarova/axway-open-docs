@@ -105,7 +105,7 @@ This example creates an API Gateway Analytics Docker image named `apigw-analytic
 ## Start the API Gateway Analytics Docker container
 
 Use the `docker run` command to start the API Gateway Analytics container.
-{{< alert title="Caution" color="warning" >}}The Admin Node Manager container must be passed an environment variable, ACCEPT_GENERAL_CONDITIONS=yes, to run. This acknowledges you have read and accept the License, Support, and Service agreement found [here](https://cdn.axway.com/u/Axway_General_Conditions_version_april_2014_eng%20(France).pdf). {{< /alert >}}
+{{< alert title="Caution" color="warning" >}}The API GAteway Analytics container must be passed an environment variable, `ACCEPT_GENERAL_CONDITIONS=yes`, to run. This acknowledges you have read and accept the License, Support, and Service agreement found [here](https://cdn.axway.com/u/Axway_General_Conditions_version_april_2014_eng%20(France).pdf). {{< /alert >}}
 
 ```
 docker run -it --name=analytics -p 8040:8040 --network=api-gateway-domain -v /tmp/reports:/tmp/reports -e ACCEPT_GENERAL_CONDITIONS=yes -e METRICS_DB_URL=jdbc:mysql://metricsdb:3306/metrics?useSSL=false -e METRICS_DB_USERNAME=db_user1 -e METRICS_DB_PASS=my_db_pwd apigw-analytics:1.0
@@ -117,7 +117,7 @@ This example performs the following:
 * Binds the port 8040 of the container to port `8040` on the host machine. This enables you to access the API Gateway Analytics web UI on port `8040` of your host machine.
 * Mounts the host directory `/tmp/reports` inside the container to store API Gateway Analytics reports.
 * Uses environment variables to specify connection details for the metrics database. The metrics database must be running as detailed in [Start external data stores](/docs/apim_installation/apigw_containers/docker_scripts_prereqs/#start-external-data-stores).
-* Uses an environment variable `ACCEPT_GENERAL_CONDITIONS` set to `yes`, which is necessary to use the API Gateway Analytics
+* Uses an environment variable `ACCEPT_GENERAL_CONDITIONS` set to `yes`, which is necessary to use API Gateway Analytics
 
 To run the container in the background, use the `-d` option, for example:
 

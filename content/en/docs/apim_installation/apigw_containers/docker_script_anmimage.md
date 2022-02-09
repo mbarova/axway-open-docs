@@ -143,7 +143,7 @@ This example creates an Admin Node Manager Docker image named `admin-node-manage
 
 Use the `docker run` command to start the Admin Node Manager container.
 
-{{< alert title="Caution" color="warning" >}}The Admin Node Manager container must be passed an environment variable, ACCEPT_GENERAL_CONDITIONS=yes, to run. This acknowledges you have read and accept the License, Support, and Service agreement found [here](https://cdn.axway.com/u/Axway_General_Conditions_version_april_2014_eng%20(France).pdf). {{< /alert >}}
+{{< alert title="Caution" color="warning" >}}The Admin Node Manager container must be passed an environment variable, `ACCEPT_GENERAL_CONDITIONS=yes`, to run. This acknowledges you have read and accept the License, Support, and Service agreement found [here](https://cdn.axway.com/u/Axway_General_Conditions_version_april_2014_eng%20(France).pdf). {{< /alert >}}
 
 ### Start a metrics-enabled Admin Node Manager container
 

@@ -30,9 +30,11 @@ You must download the following from [Axway Support](https://support.axway.com).
 
 #### Acceptance of General Conditions for license and subscription services
 
-To run API Gateway/API Manager, Admin Node Manager or API Gateway Analytics containers, you must accept Axway General Terms and Conditions:
+To run API Gateway, API Manager, Admin Node Manager, or API Gateway Analytics containers you must accept Axway General Terms and Conditions:
 
-Axway products and services are governed exclusively by Axway's [General Terms and Conditions](https://www.axway.com/en/legal/contract-documents). To accept them, set the environment variable `ACCEPT_GENERAL_CONDITIONS` to `yes` when running each container.
+_“You hereby accept that the Axway Products and/or Services shall be governed exclusively by the [Axway General Terms and Conditions](https://www.axway.com/en/legal/contract-documents), unless an agreement has been signed with Axway in which case such agreement shall apply.”_
+
+To accept them, set the environment variable `ACCEPT_GENERAL_CONDITIONS` to `yes` when running each container.
 
 #### API Gateway licenses
 

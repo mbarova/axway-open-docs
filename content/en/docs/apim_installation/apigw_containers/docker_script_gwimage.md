@@ -182,12 +182,9 @@ This example creates an API Gateway Docker image named `api-gateway-api-mgr-grou
 
 ## Start the API Gateway Docker container
 
-Use the `docker run` command to start the API Gateway container.
-{{< alert title="Caution" color="warning" >}}The API Gateway container must be passed an environment variable, `ACCEPT_GENERAL_CONDITIONS=yes`, to run. This acknowledges you have read and accept the License, Support, and Service agreement found [here](https://cdn.axway.com/u/Axway_General_Conditions_version_april_2014_eng%20(France).pdf). {{< /alert >}}
+Use the `docker run` command to start the API Gateway container. The following example shows how to run an API Manager-enabled API Gateway container in the background on a specific port:
 
-### Start an API Manager-enabled API Gateway container
-
-The following example shows how to run an API Manager-enabled API Gateway container in the background on a specific port:
+{{< alert title="Note" >}}API Gateway Analytics container **requires** you to enable the `ACCEPT_GENERAL_CONDITIONS` environment variable to acknowledge that you have read and accepted [Axway License, Support, and Service Agreement](https://cdn.axway.com/u/Axway_General_Conditions_version_april_2014_eng%20(France).pdf). {{< /alert >}}
 
 ```
 docker run -d --name=apimgr --network=api-gateway-domain -p 8075:8075 -p 8065:8065 -p 8080:8080 -v /tmp/events:/opt/Axway/apigateway/events -e ACCEPT_GENERAL_CONDITIONS=yes -e EMT_ANM_HOSTS=anm:8090 -e CASS_HOST=casshost1 -e METRICS_DB_URL=jdbc:mysql://metricsdb:3306/metrics?useSSL=false -e METRICS_DB_USERNAME=db_user1 -e METRICS_DB_PASS=my_db_pwd -e EMT_TRACE_LEVEL=DEBUG api-gateway-my-group:1.0
@@ -203,7 +200,7 @@ This example performs the following:
 * Uses `METRICS_DB_URL`, `METRICS_DB_USERNAME` and `METRICS_DB_PASS` environment variables to specify connection details for the metrics database.
 * Uses an environment variable `EMT_TRACE_LEVEL` to set a trace level inside the container. In the above example a trace level switches from INFO to DEBUG level during container startup.
 * Sets the `EMT_ANM_HOSTS` environment variable to `anm:8090` in the container. This enables the API Gateway to communicate with the Admin Node Manager container on port `8090`. The API Gateway is now visible in the API Gateway Manager topology view.
-* Uses an environment variable `ACCEPT_GENERAL_CONDITIONS` set to `yes`, which is necessary to use API Gateway
+* Sets the `ACCEPT_GENERAL_CONDITIONS` environment variable to `yes` to acknowledge that you have accepted [Axway License, Support, and Service Agreement](https://cdn.axway.com/u/Axway_General_Conditions_version_april_2014_eng%20(France).pdf).
 
 ![API Gateway container in topology view](/Images/ContainerGuide/gw_mgr_topology.png)
 

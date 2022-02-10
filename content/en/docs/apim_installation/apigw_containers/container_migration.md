@@ -131,6 +131,8 @@ To build images, follow these steps:
 
 To start the Admin Node Manager and API Gateway Docker containers, follow these steps:
 
+{{< alert title="Note" >}}API Gateway Analytics container **requires** you to enable the `ACCEPT_GENERAL_CONDITIONS` environment variable to acknowledge that you have read and accepted [Axway License, Support, and Service Agreement](https://cdn.axway.com/u/Axway_General_Conditions_version_april_2014_eng%20(France).pdf). {{< /alert >}}
+
 1. Start the Admin Node Manager container as detailed in [Start the Admin Node Manager Docker container](/docs/apim_installation/apigw_containers/docker_script_anmimage/#start-the-admin-node-manager-docker-container). For example:
 
     ```

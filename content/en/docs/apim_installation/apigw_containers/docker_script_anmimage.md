@@ -141,13 +141,9 @@ This example creates an Admin Node Manager Docker image named `admin-node-manage
 
 ## Start the Admin Node Manager Docker container
 
-Use the `docker run` command to start the Admin Node Manager container.
+Use the `docker run` command to start the Admin Node Manager container. The following example shows how to run a metrics-enabled Admin Node Manager container in the background on a specific port:
 
-{{< alert title="Caution" color="warning" >}}The Admin Node Manager container must be passed an environment variable, `ACCEPT_GENERAL_CONDITIONS=yes`, to run. This acknowledges you have read and accept the License, Support, and Service agreement found [here](https://cdn.axway.com/u/Axway_General_Conditions_version_april_2014_eng%20(France).pdf). {{< /alert >}}
-
-### Start a metrics-enabled Admin Node Manager container
-
-The following example shows how to run a metrics-enabled Admin Node Manager container in the background on a specific port:
+{{< alert title="Note" >}}API Gateway Analytics container **requires** you to enable the `ACCEPT_GENERAL_CONDITIONS` environment variable to acknowledge that you have read and accepted [Axway License, Support, and Service Agreement](https://cdn.axway.com/u/Axway_General_Conditions_version_april_2014_eng%20(France).pdf). {{< /alert >}}
 
 ```
 docker run -d -p 8090:8090 --name=anm --network=api-gateway-domain -v /tmp/events:/opt/Axway/apigateway/events -e ACCEPT_GENERAL_CONDITIONS=yes -e METRICS_DB_URL=jdbc:mysql://metricsdb:3306/metrics?useSSL=false -e METRICS_DB_USERNAME=db_user1 -e METRICS_DB_PASS=my_db_pwd -e EMT_TRACE_LEVEL=DEBUG admin-node-manager:1.0
@@ -161,7 +157,7 @@ This example performs the following:
 * Mounts the `/tmp/events` host directory in the container, which contains API Gateway transaction event logs. For best practice, you can parametrize this directory by way of the `quickstart.sh` script included in the Docker scripts package.
 * Uses `METRICS_DB_URL`, `METRICS_DB_USERNAME` and `METRICS_DB_PASS` environment variables to specify connection details for the metrics database.
 * Uses an environment variable `EMT_TRACE_LEVEL` to set a trace level inside the container. In the above example a trace level switches from INFO to DEBUG level during container startup.
-* Uses an environment variable `ACCEPT_GENERAL_CONDITIONS` set to `yes`, which is necessary to use the Admin Node Manager
+* Sets the `ACCEPT_GENERAL_CONDITIONS` environment variable to `yes` to acknowledge that you have accepted [Axway License, Support, and Service Agreement](https://cdn.axway.com/u/Axway_General_Conditions_version_april_2014_eng%20(France).pdf).
 
 ### Further information
 

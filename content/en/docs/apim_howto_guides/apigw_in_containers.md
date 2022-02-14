@@ -70,11 +70,11 @@ This reduces the size of the API Gateway image to 715 MB and the Admin Node Mana
 
 ## Set locale environment variables
 
-The API Gateway Docker image is automatically created with the `LC_CTYPE` environment variable set to `en_US.UTF-8`. This is required to handle Unicode-named files that might be in use in your configuration (`fed` files). If needed, this environment variable can be manually overridden in two ways:
+The API Gateway Docker image is automatically created with the `LANG` environment variable set to `en_US.UTF-8`. This is required to handle Unicode-named files that might be in use in your configuration (`fed` files). If needed, this environment variable can be manually overridden in two ways:
 
-* By editing the API Gateway Dockerfile, found at `Dockerfiles\emt-gateway\Dockerfile`. Change or remove the line `ENV LC_CTYPE=en_US.UTF-8` to modify this environment variable.
+* By editing the API Gateway Dockerfile, found at `Dockerfiles\emt-gateway\Dockerfile`. Change or remove the line `ENV LANG=en_US.UTF-8` to modify this environment variable.
 * By overriding the image default environment variable while running an API Gateway Docker container. For example:
 
     ```
-    docker run -d --name=apimgr --network=api-gateway-domain -p 8075:8075 -p 8065:8065 -p 8080:8080 -v /tmp/events:/opt/Axway/apigateway/events -e EMT_ANM_HOSTS=anm:8090 -e     CASS_HOST=casshost1 -e METRICS_DB_URL=jdbc:mysql://metricsdb:3306/metrics?useSSL=false -e METRICS_DB_USERNAME=db_user1 -e METRICS_DB_PASS=my_db_pwd -e EMT_TRACE_LEVEL=DEBUG     api-gateway-my-group:1.0 -e LC_CTYPE=en_IE.UTF-8
+    docker run -d --name=apimgr --network=api-gateway-domain -p 8075:8075 -p 8065:8065 -p 8080:8080 -v /tmp/events:/opt/Axway/apigateway/events -e EMT_ANM_HOSTS=anm:8090 -e     CASS_HOST=casshost1 -e METRICS_DB_URL=jdbc:mysql://metricsdb:3306/metrics?useSSL=false -e METRICS_DB_USERNAME=db_user1 -e METRICS_DB_PASS=my_db_pwd -e EMT_TRACE_LEVEL=DEBUG     api-gateway-my-group:1.0 -e LANG=en_IE.UTF-8
     ```
